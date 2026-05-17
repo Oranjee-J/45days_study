@@ -1,0 +1,11 @@
+,Number,Name,Age,Score,Grade,pass?
+0,1,,8.0,50,1,False
+1,2,b 1,8.0,86,1,True
+2,3,a 2,,56cieh,1,False
+3,4,a 5,12.0,88ibhf,5,True
+4,5,,,64,3,True
+5,6,h 3,,72,4,True
+6,7,i 5,,81,2,True
+7,8,e 1,12.0,40,5,False
+8,9,a 4,,80abce,3,True
+9,10,i 1,8.0,68,1,True
