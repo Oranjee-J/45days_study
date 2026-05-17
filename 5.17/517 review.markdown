@@ -1,6 +1,6 @@
-## Matpotlib
+# Matpotlib
 
-# 安装和使用
+## 安装和使用
 
 首先进入虚拟环境，在终端输入```pip install matplotlib```即可
 
@@ -34,7 +34,7 @@ linestyle(ls)       定义线的类型
 color(c)            定义线的颜色
 linewidth           定义线的宽度
 
-# 设置标签和标题的方法
+## 设置标签和标题的方法
 
 通过以下函数即可设置x、y轴标签以及图标的标题
 
@@ -49,7 +49,7 @@ plt.grid(axis = 'x')        # 在x轴方向展示网格线
 
 
 
-# 创建其他图的方法
+## 创建其他图的方法
 
 
 ### 创建柱形图
@@ -93,3 +93,108 @@ plt.show()
 
 
 ### 子图的创建
+
+子图可以
+
+```python
+
+
+plt.subplot(2,1,1)
+plt.plot(x,y)
+plt.set_title(' ')
+
+plt.subplot(2,1,2)
+plt.plot(x,y)
+plt.set_title('')
+
+```
+对于plt.subplot(x,y,index)来说，x代表将行分割成x份，y代表将列分割成y份，index代表图画在第几个空里。
+
+
+
+```python
+fig, axe = plt.subplots(2,1,sharex = True)
+
+axe[0].plot(days, high)
+axe[0].set_title("Highest Temperature")
+axe[0].grid()
+
+axe[1].plot(days,low)
+axe[1].set_title('Lowest Temperature')
+axe[1].grid()
+```
+
+
+
+# Git
+
+首先我们到git的官网里去下载并安装git，然后打开git bash开始配置环境。
+
+要想从本地直接上传到github自己创建的仓库里，我们需要执行以下几个步骤：
+1.建立仓库
+2.配置用户名与邮箱
+3.配置ssh
+- 生成ssh密钥
+- 将ssh密钥添加到ssh代理
+- 在github添加公钥
+- 使用ssh链接克隆仓库
+4.上传文件
+
+## 1.建立仓库、
+在github新建仓库即可
+
+## 2. 配置用户名与邮箱
+
+- 打开Git Bash
+
+```bash
+git config --global user.name "github上的注册的用户名" # 例如我的用户名 "Oranjee-J"
+git config --global user.email "github上的注册的邮箱" # 例如我的邮箱 "2775429497@qq.com"
+git config --global --list
+```
+
+## 3. 配置ssh
+- 生成ssh密钥
+
+因为我的用户名是中文，如果用默认路径，路径里会包含乱码，导致无法生成密钥，所以先查看路径
+
+```bash
+ls /c/Users         # 查看目录
+mkdir -p /c/Users/小橘/.ssh
+ssh-keygen -t rsa -b 4096 -C "2775429497@qq.com" -f /c/Users/小橘/.ssh/id_rsa
+```
+然后一路回车，然后就能生成密钥了。
+
+然后用以下命令来查看密钥，注意私钥不能发给别人！
+```bash
+cat /c/Users/小橘/.ssh/id_rsa.pub       # 公钥
+cat /c/Users/小橘/.ssh/id_rsa           # 私钥
+```
+- 将ssh密钥添加到ssh代理
+我目前没有添加，不影响使用。
+
+- 在github添加公钥
+然后把公钥全部复制下来，然后进入github，点击头像，进入设置，然后添加公钥。
+
+- 使用ssh链接克隆仓库
+
+先在本地新建一个github文件夹：
+```bash
+cd /c/Oranjee/gitproject/github 
+git clone git@github.com:Oranjee-J/45days_study.git
+```
+这样就能克隆仓库了。
+
+然后再进入这个本地的仓库文件夹，可以把文件上传到github里去：
+```bash
+git add .           # 全部上传
+git add main.py     # 上传某一个
+git add data/       # 上传文件夹下变化的文件
+
+```
+
+
+```bash
+git commit -m "Initial commit"
+git push origin main
+```
