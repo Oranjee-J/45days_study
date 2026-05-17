@@ -205,3 +205,36 @@ git push origin main
 我们可以通过分支管理，来进行文件的更新。分支管理使得某一次更新在确认之后才会上传到main分支。
 对于大型项目比如说一个游戏来说，游戏可以进行beta测试，当这个测试经过反复修改之后，确定可以作为正式版本的更新，再更新到mian。
 可以这样理解。
+
+## 首先创建一个分支
+```bash
+
+git branch 
+git branch       # 查看分支
+```
+
+
+## 切换分支
+
+```bash
+ git checkout testing
+
+```
+
+## 其次在分支里进行文件的提交
+
+
+## 建立本地分支和github分支的跟踪关系
+
+把本地testing分支上传到 GitHub 的testing分支并建立跟踪关系
+
+```bash
+git push -u origin testing
+```
+
+## 合并分支至main
+
+```bash
+git merge testing
+
+```
