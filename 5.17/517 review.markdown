@@ -217,8 +217,7 @@ git branch       # 查看分支
 ## 切换分支
 
 ```bash
- git checkout testing
-
+git checkout testing
 ```
 
 ## 其次在分支里进行文件的提交
@@ -236,5 +235,11 @@ git push -u origin testing
 
 ```bash
 git merge testing
+```
 
+## 更新远程main
+这是最后一步了，完成这些会发现github上并没有更新，因为我们还没有把本地的main更新到githubshangqu
+
+```bash
+git push origin main
 ```
